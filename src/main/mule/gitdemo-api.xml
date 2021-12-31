@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="0691c8ea-8e6c-4ab6-a645-141a874859c5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="getHello" doc:id="2633e1ab-1a7e-44f8-b8d5-13c54044a356" >
+		<http:listener doc:name="GET /hello" doc:id="cbf51532-bb02-49fb-a9b9-bf9ec386c52b" path="/hello" config-ref="HTTP_Listener_config"/>
+		<set-payload value='#["Message: " ++ "Hello git, this is a message from Anypoint Studio !!"]' doc:name="Hello" doc:id="b9a26897-2dd4-49dc-969c-1a918bdc4693" />
+	</flow>
+</mule>
